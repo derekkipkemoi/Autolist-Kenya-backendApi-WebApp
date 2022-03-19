@@ -1,0 +1,615 @@
+@import "~react-image-gallery/styles/css/image-gallery.css";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Raleway:wght@100;300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&family=Open+Sans:wght@300&family=Raleway:wght@100;300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+body {
+  font-family: "Josefin Sans", sans-serif;
+  height: 100%;
+  position: relative;
+}
+
+/* .container {
+  max-width: 65% !important;
+}  */
+
+
+.btn-playstore{
+  background-color: #212529;
+}
+
+.btn-playstore:hover{
+  color: #000;
+}
+
+.btn-circle-remove {
+  border-color: rgb(255, 0, 0);
+  background-color: #fff;
+  width: 35px;
+  height: 35px;
+  padding: 5px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+}
+
+.btn-circle-remove:hover {
+  border-color: #fff;
+  background-color: #fff;
+  width: 35px;
+  height: 35px;
+  padding: 5px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+}
+.btn-round-social-facebook {
+  margin-left: 15px;
+}
+
+.btn-round-social-facebook:hover {
+  margin-left: 15px;
+  background-color: #f0fafa;
+}
+.btn-round-social-google {
+  margin-left: 15px;
+  background-color: #f0fafa;
+}
+
+.btn-round-add {
+  margin-top: 10px;
+  color: #ffffff;
+  background-color: #25D366;
+}
+
+.btn-round-circle-favourite {
+  margin-left: 10px;
+  background-color: #f0fafa;
+}
+
+.btn-round-circle-favourite:hover {
+  margin-left: 10px;
+  border-color: #d60841;
+}
+
+.btn-round-circle-list {
+  margin-left: 10px;
+  background-color: #f0fafa;
+}
+
+.btn-round-circle-list:hover {
+  margin-left: 10px;
+  border-color: rgb(36, 35, 35);
+}
+
+.btn-round-favourite :hover {
+  border-color: #d60841;
+}
+
+.btn-round-favourite {
+  border-color: #d60841;
+  width: 35px;
+  height: 35px;
+  padding: 5px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+}
+
+.btn-round-favourite:hover {
+  margin-left: 10px;
+  background-color: #d60841;
+}
+
+#container {
+  position: relative;
+}
+
+#copyright {
+  position: absolute;
+  bottom: 0;
+}
+
+.btn-circle.btn-md {
+  width: 50px;
+  height: 50px;
+  padding: 7px 10px;
+  border-radius: 25px;
+  font-size: 10px;
+  text-align: center;
+}
+
+.arr-right .breadcrumb-item + .breadcrumb-item::before {
+  content: "›";
+
+  vertical-align: top;
+
+  color: #fff;
+
+  font-size: 35px;
+
+  line-height: 18px;
+}
+
+.custom-card,
+.custom-card:hover {
+  color: #212529;
+  text-decoration: none;
+}
+
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 5px 5px;
+  border-radius: 35px;
+  font-size: 12px;
+  line-height: 1.33;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  padding: 5px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+}
+
+#myCarousel .list-inline {
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+#myCarousel .carousel-indicators {
+  position: static;
+  left: initial;
+  width: initial;
+  margin-left: initial;
+}
+
+#myCarousel .carousel-indicators > li {
+  width: initial;
+  height: initial;
+  text-indent: initial;
+}
+
+#myCarousel .carousel-indicators > li.active img {
+  opacity: 0.7;
+}
+
+html {
+  font-size: calc(0.5em + 0.45vw);
+  font-family: "Montserrat", sans-serif;
+}
+
+.card-input-element {
+  display: none;
+}
+
+.card-input {
+  margin: 5px;
+  padding: 00px;
+}
+
+.card-input:hover {
+  cursor: pointer;
+}
+
+.card-input-element:checked + .card-input {
+  box-shadow: 0 0 4px 4px #25D366;
+}
+
+.sell-car .form-control {
+  border-radius: 5px !important;
+}
+
+.btn-upload {
+  display: block;
+  border-radius: 0px;
+  box-shadow: 0px 4px 6px 2px rgba(0, 0, 0, 0.2);
+  margin-top: -5px;
+}
+
+.image-area {
+  border: 2px dashed rgb(255, 255, 255);
+  padding: 5rem;
+  position: relative;
+  width: 100%;
+  height: 150px;
+  background-position: center;
+  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: inline-block;
+  box-shadow: 0px -3px 6px 2px rgba(0, 0, 0, 0.2);
+}
+
+#mpesa {
+  background-image: url("../images/Lipa-na-Mpesa.png");
+  width: 100%;
+  height: 150px;
+}
+
+#front {
+  background-image: url("../svgs/car-front.svg");
+}
+
+#right {
+  background-image: url("../svgs/car-right.svg");
+}
+
+#left {
+  background-image: url("../svgs/car-left.svg");
+}
+
+#back {
+  background-image: url("../svgs/car-rear.svg");
+}
+
+#dashboard {
+  background-image: url("../svgs/car-dashboard.svg");
+}
+
+#interior {
+  background-image: url("../svgs/car-interior.svg");
+}
+
+.image-area::before {
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.8rem;
+  z-index: 1;
+}
+
+.image-area img {
+  z-index: 2;
+  position: relative;
+}
+
+.button_remove {
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
+body {
+  background: linear-gradient(to left, #f0fafa, #f0fafa);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form-group {
+  margin-bottom: 0rem !important;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.navbar-brand {
+  margin: 0%;
+  padding: 0%;
+}
+
+.navbar-brand img {
+  height: 27px;
+  /* put value of image height as your need */
+  float: left;
+  margin-right: 10px;
+}
+
+.jumbotron-logo img {
+  height: 20px;
+  width: 200px;
+  /* put value of image height as your need */
+  float: left;
+  margin-right: 0px;
+}
+
+.sell-car p {
+  margin-bottom: 0.3rem;
+  color: white;
+}
+
+.home-newsletter {
+  margin-top: 20px;
+  padding: 15px 0;
+  background: #00544c;
+}
+
+.home-newsletter .single {
+  max-width: 650px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.home-newsletter .single h6 {
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.home-newsletter .single .form-control {
+  background: #fff;
+  border-color: transparent;
+  border-radius: 20px 0 0 20px;
+}
+
+.home-newsletter .single .form-control:focus {
+  box-shadow: none;
+  border-color: #25D366;
+}
+
+.home-newsletter .single .btn {
+  border-radius: 0 0px 0px 0;
+  background: #25D366;
+  color: #fff;
+}
+
+.scrollable-menu {
+  height: auto;
+  max-height: 200px;
+  overflow-x: hidden;
+}
+
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.jumbotron-container {
+  position: relative;
+}
+
+.jumbotron-children {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin-bottom: 20px;
+}
+.jumbotron {
+  background: url("../images/4.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 430px;
+  /*opacity: 0.7;*/
+}
+.btn-custom {
+  color: white !important;
+  background-color: #25D366 !important;
+  /* border-color: #ffffff !important; */
+}
+
+.btn-custom:hover,
+.btn-custom:focus {
+  color: #25D366 !important;
+  background-color: white !important;
+  border-color: #25D366 !important;
+  /*set the color you want here*/
+}
+
+.btn-sellcar {
+  color: #ffff;
+  background-color: #05a01f !important;
+  border-color: #05a01f !important;
+  padding: 0.6rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1;
+
+  /*set the color you want here*/
+}
+
+.btn-sellcar:hover,
+.btn-sellcar:focus {
+  color: #05a01f !important;
+  background-color: #fff !important;
+  border-color: #ffffff !important;
+  /* border-color: #25D366 !important; */
+  /*set the color you want here*/
+}
+
+.btn-add {
+  color: #ffa010 !important;
+  background-color: #25D366 !important;
+  border-color: white !important;
+  /*set the color you want here*/
+}
+
+.btn-add:hover,
+.btn-add:focus {
+  color: #ffa010 !important;
+  background-color: white !important;
+  border-color: #25D366 !important;
+  /*set the color you want here*/
+}
+
+.btn-whatsApp {
+  color: white !important;
+  background-color: #25d366 !important;
+  border-color: white !important;
+  /*set the color you want here*/
+}
+
+.btn-whatsApp:hover,
+.btn-whatsApp:focus {
+  color: #25d366 !important;
+  background-color: white !important;
+  border-color: #25d366 !important;
+  /*set the color you want here*/
+}
+
+.btn-confirm {
+  color: white !important;
+  background-color: green !important;
+  border-color: white !important;
+  /*set the color you want here*/
+}
+
+.btn-confirm:hover,
+.btn-confirm:focus {
+  color: green !important;
+  background-color: white !important;
+  border-color: green !important;
+  /*set the color you want here*/
+}
+
+.btn-delete {
+  color: white !important;
+  background-color: red !important;
+  border-color: white !important;
+  /*set the color you want here*/
+}
+
+.btn-delete:hover,
+.btn-delete:focus {
+  color: red !important;
+  background-color: white !important;
+  border-color: red !important;
+  /*set the color you want here*/
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0rem;
+  line-height: 1.2;
+}
+
+hr {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1;
+  border-top: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+input[type="file"] {
+  display: none;
+}
+.image {
+  position: relative;
+  display: inline-block;
+  margin: 6px;
+}
+
+.car-images {
+  width: 100px; /* You can set the dimensions to whatever you want */
+  height: 100px;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  right: 5px;
+}
+
+.btn-round-remove {
+  color: black;
+  margin-top: 3px;
+}
+
+.btn-round-remove:hover {
+  background-color: red;
+  color: black;
+}
+
+.btn-round-profile {
+  color: #ffffff;
+  background-color: #25D366;
+  margin-top: 3px;
+}
+
+.btn-round-profile:hover {
+  color: black;
+}
+
+.card-image-icon {
+  position: relative;
+}
+
+.image-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.card {
+  border: none;
+  background-color: #ffff;
+}
+.center-container {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.table {
+  background-color: #ffff;
+}
+
+.table td,
+.table th {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: none;
+}
+
+.imageProfile {
+  position: relative;
+}
+
+.overlayProfile {
+  position: absolute;
+  top: 100px;
+  left: 80px;
+}
+
+.profilePercentage {
+  position: absolute;
+  top: 60px;
+  left: 50px;
+}
+
+.nav .active {
+  background-color: #fff !important;
+  color: #25D366 !important;
+  border: medium none;
+  border-radius: 0;
+}
+
+.nav .nav-link {
+  color: #000;
+  border: medium none;
+  border-radius: 0;
+}
