@@ -362,9 +362,6 @@ class Dashboard extends Component {
             userEmail: this.props.userObject.local.email,
           });
           break;
-
-        default:
-          this.state({})
       }
 
       await this.props.getUserCars(userObject.id);
