@@ -292,7 +292,7 @@ module.exports = {
       { $inc: { views: 1 } }
     );
     if (!carObject) {
-      const message = "This car does not exist";
+      const message = "Car does not exist";
       return res.status(200).json({ message });
     }
     const message = "Car Viewed";
