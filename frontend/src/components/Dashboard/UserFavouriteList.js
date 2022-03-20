@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
-import carsList from "../../reducers/carsList";
 import Spinner from "../Spinner";
 import FavouriteCarCard from "./FavouriteCarCard";
 class UserFavouriteList extends Component {

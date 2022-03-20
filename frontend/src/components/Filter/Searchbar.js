@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { withRouter } from "react-router-dom";
 
 class SearchBar extends Component {
 

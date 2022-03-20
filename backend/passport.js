@@ -6,12 +6,7 @@ const GoogleTokenStrategy = require("passport-google-token").Strategy;
 const FacebookTokenStrategy = require("passport-facebook-token");
 const User = require("./models/user");
 
-
-const dotenv = require('dotenv')
-const dotenvExpand = require('dotenv-expand')
-var myEnv = dotenv.config({path: "../.env"})
-dotenvExpand(myEnv)
-
+require("dotenv").config();
 
 const { token } = require("morgan");
 const badCredentials = "Incorrect User Password or Email";

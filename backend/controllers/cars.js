@@ -1,10 +1,9 @@
 const Car = require("../models/car");
 const User = require("../models/user");
 const _ = require("lodash");
-const path = require("path");
 const fs = require("fs").promises;
-const { toPath } = require("lodash");
 
+require("dotenv").config();
 
 
 module.exports = {

@@ -34,6 +34,7 @@ class ImageUpload extends Component {
         that.setState({
           largeFilesError: "Image must not exceed 5 MB",
         });
+        return null
       } else if (file.size <= MAX_FILE_SIZE) {
         that.setState({
           largeFilesError: null,
@@ -53,6 +54,7 @@ class ImageUpload extends Component {
         that.setState({
           duplicateFilesError: "Already added photos excluded",
         });
+        return null
       }
     });
 

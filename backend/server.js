@@ -6,14 +6,10 @@ const helmet = require('helmet')
 const { join } = require('path')
 const fileUpload = require('express-fileupload')
 const cors = require('cors')
-const pug = require('pug')
 const connectToDB = require("./database/db.js")
 
-
-const { config } = require ('dotenv')
-const dotenvExpand = require('dotenv-expand')
-var myEnv = config({path: ".env"})
-dotenvExpand(myEnv)
+const myEnv = require("dotenv").config();
+require("dotenv").config();
 
 console.log("server logging envirnment",myEnv);
 

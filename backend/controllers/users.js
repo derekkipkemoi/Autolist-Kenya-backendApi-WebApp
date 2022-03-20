@@ -14,10 +14,7 @@ const Mpesa = require("mpesa-node");
 const { findOne, findById } = require("../models/user");
 const { match } = require("assert");
 
-const dotenv = require('dotenv')
-const dotenvExpand = require('dotenv-expand')
-var myEnv = dotenv.config({path: "../.env"})
-dotenvExpand(myEnv)
+require("dotenv").config();
 
 // console.log("envirnment",myEnv);
 
@@ -280,7 +277,7 @@ module.exports = {
 
     // 
     if(process.env.NODE_ENV === "production"){
-      
+
       const html = pug.renderFile(
         path.join(__dirname, "../views", "resetpassword.pug"),
         {

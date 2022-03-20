@@ -6,7 +6,7 @@ import CarCard from "./CarCard";
 import Spinner from "./Spinner";
 
 import { FacebookShareButton, TwitterShareButton } from "react-share";
-import { FacebookIcon, WhatsappIcon, TwitterIcon } from "react-share";
+import { FacebookIcon, TwitterIcon } from "react-share";
 
 class UserList extends Component {
   state = {
@@ -185,7 +185,7 @@ class UserList extends Component {
                   {this.state.loading ? <Spinner /> : null}
                   {this.state.cars.map((car) => (
                      <div key={car.id}>
-                    <div key={car.id} key={car._id}>
+                    <div key={car.id}>
                       <CarCard car={car} />
                     </div>
                     </div>

@@ -109,10 +109,7 @@ class VehicleDetails extends Component {
     });
   }
   render() {
-    const bottomStyle = {
-      marginLeft: "10px",
-      color: "#25D366",
-    };
+
     const featureStyle = {
       backgroundColor: "#25D366",
       color: "#fff",
@@ -122,10 +119,6 @@ class VehicleDetails extends Component {
       color: "#00544C",
       marginLeft: "10px",
       marginRight: "10px",
-    };
-
-    const favouriteIconsStyle = {
-      color: "#d60841",
     };
 
     const socialMediaIconsStyle = {

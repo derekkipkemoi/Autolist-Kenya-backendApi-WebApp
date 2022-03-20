@@ -9,7 +9,6 @@ import { numberFormat, priceFormat } from "../NumberFormat";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import Spinner from "../Spinner";
-import CarCard from "../CarCard";
 import carsMakes from "../../data/cars.json";
 import {
   FacebookShareButton,
@@ -361,10 +360,6 @@ class UserVehicleDetails extends Component {
 
   render() { 
     const { carDetails, carFeatures, carImages } = this.state;
-    const bottomStyle = {
-      marginLeft: "10px",
-      color: "#25D366",
-    };
     const featureStyle = {
       backgroundColor: "#25D366",
       color: "#fff",
@@ -374,10 +369,6 @@ class UserVehicleDetails extends Component {
       color: "#00544C",
       marginLeft: "10px",
       marginRight: "10px",
-    };
-
-    const favouriteIconsStyle = {
-      color: "#d60841",
     };
 
     const socialMediaIconsStyle = {

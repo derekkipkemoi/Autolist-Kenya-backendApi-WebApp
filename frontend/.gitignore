@@ -9,12 +9,13 @@ Dockerfile.dev
 # testing
 /coverage
 
+#environment variable
+/.env
+
 # production
 /build
 
 Dockerfile.dev
-
-/src/.env
 
 # misc
 .DS_Store

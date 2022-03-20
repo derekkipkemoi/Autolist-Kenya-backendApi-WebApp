@@ -4,8 +4,6 @@ import * as actions from "../../actions";
 import Spinner from "../Spinner";
 import { Link } from "react-router-dom";
 
-var phoneno = /^\d{10}$/;
-
 class UserPhoneNumber extends Component {
   state = {
     userObject: JSON.parse(localStorage.getItem("UserObject")),

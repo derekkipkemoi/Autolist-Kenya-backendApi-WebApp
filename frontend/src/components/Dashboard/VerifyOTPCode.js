@@ -1,10 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import firebase from "./Firebase";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
 import Spinner from "../Spinner";
 
-var phoneno = /^\d{10}$/;
 var codeno = /^\d{6}$/;
 
 class VerifyOTPCode extends React.Component {

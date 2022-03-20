@@ -29,7 +29,7 @@ import {
   GET_USER_FAVOURITE,
 } from "./types";
 
-const baseUrl = "https://autolistapi.herokuapp.com";
+const baseUrl = process.env.REACT_APP_BASEURL
 // const baseUrl = "http://localhost:5000";
 
 

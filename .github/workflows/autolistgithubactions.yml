@@ -8,7 +8,9 @@ jobs:
   build:
     runs-on: self-hosted
     env:
-        working-directory: ./backend
+        working-directory-backend: ./backend
+        working-directory-frontend: ./frontend
+        working-directory: .
 
     steps:
       - uses: actions/checkout@main
@@ -18,6 +20,7 @@ jobs:
           echo NODE_ENV=${{ secret.NODE_ENV }} >> .env
           echo MONGO_ROOT_PASSWORD=${{ secrets.MONGO_ROOT_PASSWORD }} >> .env
           echo MONGO_ROOT_USERNAME=${{ secrets.MONGO_ROOT_USERNAME }} >> .env
+          echo MONGO_URI=${{secrets.MONGO_URI }} >> .env 
           echo FILES_URI=${{ secrets.FILES_URI }} >> .env
           echo MAILGUN_PASS=${{ secrets.MAILGUN_PASS }} >> .env
           echo MAILGUN_USER=${{ secrets.MAILGUN_USER }} >> .env
@@ -35,30 +38,31 @@ jobs:
           echo MPESA_ENVIRONMENT=${{ secrets.MPESA_ENVIRONMENT}} >> .env
           echo SECURITYCREDENTIAL=${{ secrets.SECURITYCREDENTIAL }} >> .env
           cat .env
-        working-directory: ${{env.working-directory}}
+        working-directory: ${{env.working-directory-backend}}
         
-      - name: Create env file
+      - uses: actions/checkout@main
+      - name: Create frontend env file
+        run: |
+          touch .env
+          echo REACT_APP_APIKEY=${{ secret.REACT_APP_APIKEY }} >> .env
+          echo REACT_APP_AUTHDOMAIN=${{ secret.REACT_APP_AUTHDOMAIN }} >> .env
+          echo REACT_APP_PROJECTID=${{ secret.REACT_APP_PROJECTID }} >> .env
+          echo REACT_APP_STORAGEBUCKET=${{ secret.REACT_APP_STORAGEBUCKET }} >> .env
+          echo REACT_APP_MESSAGINGSENDERID=${{ secret.REACT_APP_MESSAGINGSENDERID }} >> .env
+          echo REACT_APP_APPID=${{ secret.REACT_APP_APPID }} >> .env
+          cat .env
+        working-directory: ${{env.working-directory-frontend}}
+
+      - uses: actions/checkout@main
+      - name: Create frontend env file
         run: |
           touch .env
           echo NODE_ENV=${{ secret.NODE_ENV }} >> .env
           echo MONGO_ROOT_PASSWORD=${{ secrets.MONGO_ROOT_PASSWORD }} >> .env
           echo MONGO_ROOT_USERNAME=${{ secrets.MONGO_ROOT_USERNAME }} >> .env
-          echo MAILGUN_PASS=${{ secrets.MAILGUN_PASS }} >> .env
-          echo MAILGUN_USER=${{ secrets.MAILGUN_USER }} >> .env
-          echo DB_NAME=${{ secrets.DB_NAME }} >> .env
-          echo FACEBOOKCLIENTID=${{ secrets.FACEBOOKCLIENTID }} >> .env
-          echo FACEBOOKCLIENTSECRET=${{ secrets.FACEBOOKCLIENTSECRET }} >> .env
-          echo GOOGLECLIENTID=${{ secrets.GOOGLECLIENTID }} >> .env
-          echo GOOGLECLIENTSECRET=${{ secrets.GOOGLECLIENTSECRET }} >> .env
-          echo JWT_SECRET=${{ secrets.JWT_SECRET }} >> .env
-          echo CONSUMER_SECRET=${{ secrets.CONSUMER_SECRET }} >> .env
-          echo CONSUMER_KEY=${{ secrets.CONSUMER_KEY }} >> .env
-          echo LIPANAMPESASHORTCODE=${{ secrets.LIPANAMPESASHORTCODE }} >> .env
-          echo LIPANAMPESASHORTPASS=${{ secrets.LIPANAMPESASHORTPASS }} >> .env
-          echo CERTPATH=${{ secrets.CERTPATH }} >> .env
-          echo MPESA_ENVIRONMENT=${{ secrets.MPESA_ENVIRONMENT}} >> .env
-          echo SECURITYCREDENTIAL=${{ secrets.SECURITYCREDENTIAL }} >> .env
+          echo MONGO_URI=${{secrets.MONGO_URI }} >> .env
           cat .env
+        working-directory: ${{env.working-directory}}
         
       # - name: Make docker-compose production
       #   run: make production

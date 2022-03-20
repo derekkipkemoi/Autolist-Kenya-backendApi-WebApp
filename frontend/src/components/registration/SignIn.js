@@ -129,9 +129,6 @@ class SignIn extends Component {
     const mystyle = {
       marginTop: "100px",
     };
-    const iconStyle = {
-      color: "#fff",
-    };
 
     return (
       <div style={mystyle}>

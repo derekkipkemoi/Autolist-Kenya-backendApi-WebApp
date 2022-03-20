@@ -120,7 +120,7 @@ class SignUp extends Component {
 
     let confirmPasswordErr = "";
     if (nam === "confirmPassword") {
-      if (val.length >= 6 && val == this.state.password) {
+      if (val.length >= 6 && val === this.state.password) {
         confirmPasswordErr = null;
       } else {
         confirmPasswordErr = "Passwords do not match";
