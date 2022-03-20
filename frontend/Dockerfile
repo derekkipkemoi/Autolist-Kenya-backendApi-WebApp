@@ -1,5 +1,4 @@
-# specify base image from dockerhub
-FROM node:14-slim as builder
+FROM node:latest as builder
 
 WORKDIR '/app'
 
