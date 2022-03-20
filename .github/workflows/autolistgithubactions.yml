@@ -1,0 +1,67 @@
+name: autlistgithubactions
+
+on:
+  push:
+    branches: [ main ]
+    
+jobs:
+  build:
+    runs-on: self-hosted
+    env:
+        working-directory: ./backend
+
+    steps:
+      - uses: actions/checkout@main
+      - name: Create backend env file
+        run: |
+          touch .env
+          echo NODE_ENV=${{ secret.NODE_ENV }} >> .env
+          echo MONGO_ROOT_PASSWORD=${{ secrets.MONGO_ROOT_PASSWORD }} >> .env
+          echo MONGO_ROOT_USERNAME=${{ secrets.MONGO_ROOT_USERNAME }} >> .env
+          echo FILES_URI=${{ secrets.FILES_URI }} >> .env
+          echo MAILGUN_PASS=${{ secrets.MAILGUN_PASS }} >> .env
+          echo MAILGUN_USER=${{ secrets.MAILGUN_USER }} >> .env
+          echo DB_NAME=${{ secrets.DB_NAME }} >> .env
+          echo FACEBOOKCLIENTID=${{ secrets.FACEBOOKCLIENTID }} >> .env
+          echo FACEBOOKCLIENTSECRET=${{ secrets.FACEBOOKCLIENTSECRET }} >> .env
+          echo GOOGLECLIENTID=${{ secrets.GOOGLECLIENTID }} >> .env
+          echo GOOGLECLIENTSECRET=${{ secrets.GOOGLECLIENTSECRET }} >> .env
+          echo JWT_SECRET=${{ secrets.JWT_SECRET }} >> .env
+          echo CONSUMER_SECRET=${{ secrets.CONSUMER_SECRET }} >> .env
+          echo CONSUMER_KEY=${{ secrets.CONSUMER_KEY }} >> .env
+          echo LIPANAMPESASHORTCODE=${{ secrets.LIPANAMPESASHORTCODE }} >> .env
+          echo LIPANAMPESASHORTPASS=${{ secrets.LIPANAMPESASHORTPASS }} >> .env
+          echo CERTPATH=${{ secrets.CERTPATH }} >> .env
+          echo MPESA_ENVIRONMENT=${{ secrets.MPESA_ENVIRONMENT}} >> .env
+          echo SECURITYCREDENTIAL=${{ secrets.SECURITYCREDENTIAL }} >> .env
+          cat .env
+        working-directory: ${{env.working-directory}}
+        
+      - name: Create env file
+        run: |
+          touch .env
+          echo NODE_ENV=${{ secret.NODE_ENV }} >> .env
+          echo MONGO_ROOT_PASSWORD=${{ secrets.MONGO_ROOT_PASSWORD }} >> .env
+          echo MONGO_ROOT_USERNAME=${{ secrets.MONGO_ROOT_USERNAME }} >> .env
+          echo MAILGUN_PASS=${{ secrets.MAILGUN_PASS }} >> .env
+          echo MAILGUN_USER=${{ secrets.MAILGUN_USER }} >> .env
+          echo DB_NAME=${{ secrets.DB_NAME }} >> .env
+          echo FACEBOOKCLIENTID=${{ secrets.FACEBOOKCLIENTID }} >> .env
+          echo FACEBOOKCLIENTSECRET=${{ secrets.FACEBOOKCLIENTSECRET }} >> .env
+          echo GOOGLECLIENTID=${{ secrets.GOOGLECLIENTID }} >> .env
+          echo GOOGLECLIENTSECRET=${{ secrets.GOOGLECLIENTSECRET }} >> .env
+          echo JWT_SECRET=${{ secrets.JWT_SECRET }} >> .env
+          echo CONSUMER_SECRET=${{ secrets.CONSUMER_SECRET }} >> .env
+          echo CONSUMER_KEY=${{ secrets.CONSUMER_KEY }} >> .env
+          echo LIPANAMPESASHORTCODE=${{ secrets.LIPANAMPESASHORTCODE }} >> .env
+          echo LIPANAMPESASHORTPASS=${{ secrets.LIPANAMPESASHORTPASS }} >> .env
+          echo CERTPATH=${{ secrets.CERTPATH }} >> .env
+          echo MPESA_ENVIRONMENT=${{ secrets.MPESA_ENVIRONMENT}} >> .env
+          echo SECURITYCREDENTIAL=${{ secrets.SECURITYCREDENTIAL }} >> .env
+          cat .env
+        
+      # - name: Make docker-compose production
+      #   run: make production
+
+      # - name: Make docker-compose client production
+      #   run: make client

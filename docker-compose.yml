@@ -1,0 +1,92 @@
+version: "3.9"
+
+services:
+   backend:
+      restart: always
+      image: backend_image
+      build:
+         context: ./backend
+         dockerfile: Dockerfile
+      container_name: backend_container
+      # volumes allow sharing of data in run-time between host and container
+      volumes:
+         - /app/node_modules
+         - ./backend:/app
+         - uploads:/app/uploads
+      # ports:
+      #    - 5000:50
+      depends_on:
+         - mongodb
+      environment:
+         NODE_ENV: ${NODE_ENV}
+         MONGO_URI: mongodb://${MONGO_ROOT_USERNAME}:${MONGO_ROOT_PASSWORD}@mongodb
+      networks:
+         - carlisting-api-network
+
+   frontend:
+      restart: always
+      image: frontend_image
+      build:
+         context: ./frontend
+         dockerfile: Dockerfile
+      container_name: frontend_container
+      stdin_open: true
+      volumes:
+         - /app/node_modules
+         - ./frontend:/app
+      # ports:
+      #    - 3000:3000
+      depends_on:
+         - backend
+      environment:
+         NODE_ENV: ${NODE_ENV}
+      networks:
+         - carlisting-api-network 
+
+   mongodb:
+      image: mongo
+      container_name: mongo_container
+      restart: always
+      ports:
+         - 27017:27017
+      environment:
+         MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
+         MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+      volumes:
+         # for persistence storage
+         - mongodb-data:/data/db
+      networks:
+         - carlisting-api-network
+   
+   nginx:
+        image: linuxserver/swag
+        ports:
+            - 80:80
+            - 443:443
+        volumes:
+            - ./nginx/config:/config
+            - ./nginx/default.conf:/config/nginx/site-confs/default
+            - ./nginx/ssl.conf:/config/nginx/ssl.conf
+        container_name: nginx
+        restart: unless-stopped
+        environment: 
+            - PUID=1000
+            - PGID=1000
+            - TZ=Europe/London
+            - URL=autolist.co.ke
+            - SUBDOMAINS=www,
+            - VALIDATION=http
+            - STAGING= false #optional 
+            - EMAIL=derekkipkemoi@gmail.com
+        networks:
+           - carlisting-api-network
+   
+volumes:
+   mongodb-data:
+      driver: local
+   uploads:
+      driver: local
+
+networks:
+   carlisting-api-network:
+      driver: bridge
