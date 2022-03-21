@@ -39,8 +39,7 @@ jobs:
           echo SECURITYCREDENTIAL=${{ secrets.SECURITYCREDENTIAL }} >> .env
           cat .env
         working-directory: ${{env.working-directory-backend}}
-        
-      - uses: actions/checkout@main
+  
       - name: Create frontend env file
         run: |
           touch .env
@@ -53,7 +52,6 @@ jobs:
           cat .env
         working-directory: ${{env.working-directory-frontend}}
 
-      - uses: actions/checkout@main
       - name: Create frontend env file
         run: |
           touch .env

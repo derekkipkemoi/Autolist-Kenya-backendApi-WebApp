@@ -16,7 +16,6 @@ const { match } = require("assert");
 
 require("dotenv").config();
 
-// console.log("envirnment",myEnv);
 
 const mpesaApi = new Mpesa({
   consumerKey: process.env.CONSUMER_KEY,
@@ -118,7 +117,8 @@ module.exports = {
       },
     });
 
-   if(process.env.NODE_ENV === "production"){
+    
+   if(JSON.stringify(process.env.NODE_ENV) === JSON.stringify("production")){
     const html = pug.renderFile(path.join(__dirname, "../views", "register.pug"), {
       secretToken: secretString,
     });

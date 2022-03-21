@@ -29,8 +29,8 @@ import {
   GET_USER_FAVOURITE,
 } from "./types";
 
-const baseUrl = process.env.REACT_APP_BASEURL
-// const baseUrl = "http://localhost:5000";
+// const baseUrl = process.env.REACT_APP_BASEURL
+const baseUrl = "http://localhost:5000";
 
 
 export const signUp = (data) => {
