@@ -129,9 +129,7 @@ module.exports = {
       "Autolist Account Verification ✔",
       html
     );
-   }
-    
-    //console.log(mail);
+
     await user.save();
     const userObject = _.pick(user, [
       "id",
@@ -149,6 +147,30 @@ module.exports = {
     const access_token = signToken(user);
     const message = "User Registered Successfully";
     res.status(200).json({ message,access_token,userObject});
+   }
+   
+   else{
+    await user.save();
+    const userObject = _.pick(user, [
+      "id",
+      "method",
+      "role",
+      "cars",
+      "favouriteCars",
+      "local.name",
+      "local.picture",
+      "local.email",
+      "phoneNumber",
+      "local.active",
+      "local.secretToken",
+    ]);
+    const access_token = signToken(user);
+    const message = "User Registered Successfully";
+    res.status(200).json({ message,access_token,userObject});
+   }
+    
+    //console.log(mail);
+    
   },
 
   //Validation: Done
@@ -293,13 +315,18 @@ module.exports = {
         html
       );
 
-    }
     user.local.passwordResetToken = passwordResetToken;
  
     await user.save();
     const message =
       "Password reset link has been sent to "+email+" please use it to reset your password";
+       res.status(200).json({ message });
+
+    }else{
+    const message = "Sending password reset link failed";
     res.status(200).json({ message });
+    }
+    
   },
 
   //Update User Password After sending Reset Link
