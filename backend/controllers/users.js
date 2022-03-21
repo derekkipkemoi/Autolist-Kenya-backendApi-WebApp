@@ -119,16 +119,20 @@ module.exports = {
 
     
 
-    const html = pug.renderFile(path.join(__dirname, "../views", "register.pug"), {
-      secretToken: secretString,
-    });
+    if(process.env.NODE_ENV === "production"){
 
-    await mailer.sendEmail(
-      "welcome@autolist.co.ke",
-      req.body.email,
-      "Autolist Account Verification ✔",
-      html
-    );
+      const html = pug.renderFile(path.join(__dirname, "../views", "register.pug"), {
+        secretToken: secretString,
+      });
+  
+      await mailer.sendEmail(
+        "welcome@autolist.co.ke",
+        req.body.email,
+        "Autolist Account Verification ✔",
+        html
+      );
+    }
+ 
 
     await user.save();
     const userObject = _.pick(user, [
@@ -147,11 +151,7 @@ module.exports = {
     const access_token = signToken(user);
     const message = "User Registered Successfully";
     res.status(200).json({ message,access_token,userObject});
-   
-   
-  
-    //console.log(mail);
-    
+    //console.log(mail); 
   },
 
   //Validation: Done
@@ -280,7 +280,6 @@ module.exports = {
 
     // 
     if(process.env.NODE_ENV === "production"){
-
       const html = pug.renderFile(
         path.join(__dirname, "../views", "resetpassword.pug"),
         {
@@ -295,19 +294,15 @@ module.exports = {
         "Autolist Password Reset",
         html
       );
-
-    user.local.passwordResetToken = passwordResetToken;
+      user.local.passwordResetToken = passwordResetToken;
  
-    await user.save();
-    const message =
-      "Password reset link has been sent to "+email+" please use it to reset your password";
-       res.status(200).json({ message });
-
+      await user.save();
+      const message =  "Password reset link has been sent to "+email+" please use it to reset your password";
+      res.status(200).json({ message });
     }else{
-    const message = "Sending password reset link failed";
-    res.status(200).json({ message });
-    }
-    
+      const message =  "Password reset failed";
+      res.status(200).json({ message });
+    }  
   },
 
   //Update User Password After sending Reset Link
