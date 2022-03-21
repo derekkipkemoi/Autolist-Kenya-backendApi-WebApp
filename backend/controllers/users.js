@@ -118,7 +118,7 @@ module.exports = {
     });
 
     
-   if(process.env.NODE_ENV === "production"){
+
     const html = pug.renderFile(path.join(__dirname, "../views", "register.pug"), {
       secretToken: secretString,
     });
@@ -147,28 +147,9 @@ module.exports = {
     const access_token = signToken(user);
     const message = "User Registered Successfully";
     res.status(200).json({ message,access_token,userObject});
-   }
    
-   else{
-    await user.save();
-    const userObject = _.pick(user, [
-      "id",
-      "method",
-      "role",
-      "cars",
-      "favouriteCars",
-      "local.name",
-      "local.picture",
-      "local.email",
-      "phoneNumber",
-      "local.active",
-      "local.secretToken",
-    ]);
-    const access_token = signToken(user);
-    const message = "User Registered Successfully";
-    res.status(200).json({ message,access_token,userObject});
-   }
-    
+   
+  
     //console.log(mail);
     
   },
