@@ -1,7 +1,10 @@
 const { reject } = require('lodash')
 const nodemailer = require('nodemailer')
-
-require("dotenv").config();
+// const config = require('../configuration/index')
+const dotenv = require('dotenv')
+const dotenvExpand = require('dotenv-expand')
+var myEnv = dotenv.config({path: ".././.env"})
+dotenvExpand(myEnv)
 
 const transport = nodemailer.createTransport({
             service: "mailgun",
