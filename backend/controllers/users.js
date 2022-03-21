@@ -118,20 +118,31 @@ module.exports = {
     });
 
     
-   if(process.env.NODE_ENV === "production"){
-    const html = pug.renderFile(path.join(__dirname, "../views", "register.pug"), {
-      secretToken: secretString,
-    });
+  //  if(process.env.NODE_ENV === "production"){
+  //   const html = pug.renderFile(path.join(__dirname, "../views", "register.pug"), {
+  //     secretToken: secretString,
+  //   });
 
-    await mailer.sendEmail(
-      "welcome@autolist.co.ke",
-      req.body.email,
-      "Autolist Account Verification ✔",
-      html
-    );
-   }
+  //   await mailer.sendEmail(
+  //     "welcome@autolist.co.ke",
+  //     req.body.email,
+  //     "Autolist Account Verification ✔",
+  //     html
+  //   );
+  //  }
     
-    //console.log(mail);
+  const html = pug.renderFile(path.join(__dirname, "../views", "register.pug"), {
+    secretToken: secretString,
+  });
+
+  await mailer.sendEmail(
+    "welcome@autolist.co.ke",
+    req.body.email,
+    "Autolist Account Verification ✔",
+    html
+  );
+
+
     await user.save();
     const userObject = _.pick(user, [
       "id",
