@@ -118,18 +118,18 @@ module.exports = {
     });
 
     
-   if(JSON.stringify(process.env.NODE_ENV) === JSON.stringify("production")){
-    const html = pug.renderFile(path.join(__dirname, "../views", "register.pug"), {
-      secretToken: secretString,
-    });
+  //  if(JSON.stringify(process.env.NODE_ENV) === JSON.stringify("production")){
+  //   const html = pug.renderFile(path.join(__dirname, "../views", "register.pug"), {
+  //     secretToken: secretString,
+  //   });
 
-    await mailer.sendEmail(
-      "welcome@autolist.co.ke",
-      req.body.email,
-      "Autolist Account Verification ✔",
-      html
-    );
-   }
+  //   await mailer.sendEmail(
+  //     "welcome@autolist.co.ke",
+  //     req.body.email,
+  //     "Autolist Account Verification ✔",
+  //     html
+  //   );
+  //  }
     
     //console.log(mail);
     await user.save();
