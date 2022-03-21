@@ -48,7 +48,7 @@ jobs:
           echo REACT_APP_MESSAGINGSENDERID=${{ secrets.REACT_APP_MESSAGINGSENDERID }} >> .env
           echo REACT_APP_APPID=${{ secrets.REACT_APP_APPID }} >> .env
           cat .env
-        working-directory: ${{./frontend}}
+        working-directory: ./frontend
 
       - name: Create frontend env file
         run: |
@@ -58,7 +58,7 @@ jobs:
           echo MONGO_ROOT_USERNAME=${{ secrets.MONGO_ROOT_USERNAME }} >> .env
           echo MONGO_URI=${{secrets.MONGO_URI }} >> .env
           cat .env
-        working-directory: ${{.}}
+        working-directory: .
         
       # - name: Make docker-compose production
       #   run: make production
