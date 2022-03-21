@@ -7,8 +7,6 @@ on:
 jobs:
   build:
     runs-on: self-hosted
-    env:
-        working-directory: ./backend
 
     steps:
       - uses: actions/checkout@main
@@ -36,7 +34,7 @@ jobs:
           echo MPESA_ENVIRONMENT=${{ secrets.MPESA_ENVIRONMENT}} >> .env
           echo SECURITYCREDENTIAL=${{ secrets.SECURITYCREDENTIAL }} >> .env
           cat .env
-        working-directory: ${{env.working-directory}}
+        working-directory: ./backend
   
       - name: Create frontend env file
         run: |
