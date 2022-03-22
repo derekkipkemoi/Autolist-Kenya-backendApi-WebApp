@@ -39,6 +39,7 @@ jobs:
       - name: Create frontend env file
         run: |
           touch .env
+          echo REACT_APP_BASEURL=${{ secrets.REACT_APP_BASEURL }} >> .env
           echo REACT_APP_APIKEY=${{ secrets.REACT_APP_APIKEY }} >> .env
           echo REACT_APP_AUTHDOMAIN=${{ secrets.REACT_APP_AUTHDOMAIN }} >> .env
           echo REACT_APP_PROJECTID=${{ secrets.REACT_APP_PROJECTID }} >> .env
