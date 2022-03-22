@@ -261,7 +261,7 @@ class ListCars extends Component {
               {
                 <div>
                   {this.state.loading ? <Spinner /> : null}
-              <SearchBar />
+              {/* <SearchBar /> */}
                   <FilterComponentList />
                   {filteredCars.map((car) => (
                     <div key={car.id}>
