@@ -128,7 +128,7 @@ class ImageUpload extends Component {
             type="file"
             id="files"
             multiple
-            accept=".jpg, .png, .gif, .jpeg"
+            accept=".jpg, .png, .gif, .jpeg, .webp"
             onChange={this.setFileUrls}
           />
 
@@ -159,8 +159,8 @@ class ImageUpload extends Component {
           Each picture must not exceed 5 Mb
         </p>
 
-        <p className="text-dark" style={noteText}>
-          supported formats are *.jpg,*jpeg,*png,*gif supported
+        <p className="text-success" style={noteText}>
+          supported formats are *.jpg,*jpeg,*png,*gif, *WebP supported
         </p>
 
         <p className="text-danger" style={errorText}>

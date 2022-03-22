@@ -30,13 +30,15 @@ import {
 } from "./types";
 
 // const baseUrl = process.env.REACT_APP_BASEURL
-const baseUrl = "http://localhost:5000";
+const baseUrl = process.env.REACT_APP_BASEURL;
 
 
 export const signUp = (data) => {
   return async (dispatch) => {
     try {
       const res = await axios.post(baseUrl + "/users/registerUser", data);
+
+      console.log("Base url", baseUrl)
       switch (res.data.message) {
         case "User Registered Successfully":
           dispatch({
