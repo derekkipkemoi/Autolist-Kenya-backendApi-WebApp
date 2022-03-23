@@ -26,7 +26,7 @@ down:
 	docker-compose down
 
 nginx:
-	docker-compose up -d --force-recreate --no-deps nginx
+	docker-compose up -d --force-recreate --no-deps frontend
 
 	docker container exec nginx nginx -t
 
