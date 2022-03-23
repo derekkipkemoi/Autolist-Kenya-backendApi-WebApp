@@ -86,6 +86,10 @@ volumes:
       driver: local
    uploads:
       driver: local
+      driver_opts:
+         type: none
+         device: /home/derek/uploads
+         o: bind
 
 networks:
    carlisting-api-network:
