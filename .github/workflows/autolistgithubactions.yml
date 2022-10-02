@@ -59,8 +59,8 @@ jobs:
           cat .env
         working-directory: .
         
-      # - name: Make docker-compose production
-      #   run: make production
+      - name: Make docker-compose production
+        run: make production
 
       # - name: Make docker-compose client production
       #   run: make client

@@ -1,0 +1,5 @@
+make.exe --dry-run --always-make --keep-going --print-directory
+make: Entering directory 'h:/CarsListingProject/CarlistingServerClientDocker'
+docker-compose config
+make: Leaving directory 'h:/CarsListingProject/CarlistingServerClientDocker'
+ 

@@ -1,0 +1,1 @@
+{"buildTargets":["api","build-development","build-development-alone","build-production","certbot","client","config","development","down","mongodb","nginx","production","volume"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}
